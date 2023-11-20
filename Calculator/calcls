@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 30px;
+            font-size: large;
+            height: max-content;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: azure;
+            background-color: rgb(32, 140, 234);
+        }
+        .home-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            margin-right: 20px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .main-container {
+            display: flex;
+            top:0px;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+
+        .container {
+            padding: 20px;
+            border: 2px solid #000;
+            box-sizing: border-box;
+            width: 40%; /* Adjust the width as needed */
+        }
+
+        .form__input {
+            width: calc(100% - 2.5rem);
+            height: 2.5rem;
+            padding: 0 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid black;
+            border-radius: 2px;
+        }
+
+        .button {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgb(32, 140, 234);
+            color: white;
+            border: none;
+            margin-right: 10px;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .acknowledgment-screen {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 2px solid #000;
+            background-color: white;
+            z-index: 1;
+        }
+
+        .success-message {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Employee Registration</h1>
+  <a href="home.html" ><button class="home-button" onclick="home.html">Home</button></a>
+
+</div>
+<div class="main-container">
+    <div class="container" id="registrationForm">
+        <form id="regForm">
+            <label for="firstName">First Name:</label>
+            <input class="form__input" type="text" id="firstName" maxlength="50" required>
+
+            <label for="lastName">Last Name:</label>
+            <input class="form__input" type="text" id="lastName" maxlength="50" required>
+
+            <label for="email">Email:</label>
+            <input class="form__input" type="text" id="email" required>
+
+            <label for="contactNumber">Contact Number:</label>
+            <input class="form__input" type="text" id="contactNumber" maxlength="10" required>
+
+            <label for="password">Password:</label>
+            <input class="form__input" type="password" id="password" maxlength="30" required>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input class="form__input" type="password" id="confirmPassword" maxlength="30" required>
+
+            <label for="address">Address:</label>
+            <textarea class="form__input" id="address" maxlength="100"></textarea>
+
+            <button type="button" class="button" onclick="registerEmployee()">Register</button>
+        </form>
+    </div>
+
+    <div class="acknowledgment-screen" id="acknowledgmentScreen">
+        <h2 class="success-message">Employee Registration Successful</h2>
+        <p>Employee ID: <span id="employeeId"></span></p>
+        <p>Name: <span id="employeeName"></span></p>
+        <p>Email: <span id="employeeEmail"></span></p>
+        <a href="login.html"><Button type="button" class="button">Login</Button></a>
+    </div>
+</div>
+
+<script>
+
+    function passwordsMatch() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        return password === confirmPassword;
+    }
+
+
+    function registerEmployee() {
+        // Perform input validation here (e.g., check if passwords match)
+        if (!passwordsMatch()) {
+            alert("Passwords do not match. Please enter matching passwords.");
+            return;
+        }
+        // Generate a random 7-digit employee ID
+        var employeeId = Math.floor(1000000 + Math.random() * 9000000);
+
+        // Get input values
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var email = document.getElementById("email").value;
+
+        // Display acknowledgment screen
+        document.getElementById("acknowledgmentScreen").style.display = "block";
+        document.getElementById("employeeId").textContent = employeeId;
+        document.getElementById("employeeName").textContent = firstName + " " + lastName;
+        document.getElementById("employeeEmail").textContent = email;
+
+        // Hide registration form
+        document.getElementById("registrationForm").style.display = "none";
+    }
+</script>
+
+</body>
+</html>

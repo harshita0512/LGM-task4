@@ -1,0 +1,245 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    
+    static class Employee {
+        int empId;
+        String employeeName;
+        String empEmail;
+        String password;
+        String empAddress;
+        String empContactNumber;
+
+        Employee(int empId, String employeeName, String empEmail, String password, String empAddress, String empContactNumber) {
+            this.empId = empId;
+            this.employeeName = employeeName;
+            this.empEmail = empEmail;
+            this.password = password;
+            this.empAddress = empAddress;
+            this.empContactNumber = empContactNumber;
+        }
+
+        @Override
+        public String toString() {
+            return "Employee Details\n" +
+                    "Employee ID: " + empId + "\n" +
+                    "Employee Name: " + employeeName + "\n" +
+                    "Email: " + empEmail + "\n" +
+                    "Password: " + password + "\n" +
+                    "Address: " + empAddress + "\n" +
+                    "Contact Number: " + empContactNumber;
+        }
+    }
+
+    static class Customer {
+        int ssnId;
+        String custName;
+  String custEmail;
+        String custAddress;
+        String custContactNumber;
+        String custAdhaarnumber;
+        String custPannumber;
+        String custAccountnumber;
+
+        Customer(int ssnId, String custName, String custEmail,String custAddress, String custContactNumber,String custAdhaarnumber,
+        String custPannumber,String custAccountnumber) {
+            this.ssnId = ssnId;
+            this.custName = custName;
+            this.custEmail = custEmail;
+            this.custAddress = custAddress;
+            this.custContactNumber = custContactNumber;
+            this.custAdhaarnumber = custAdhaarnumber;
+            this.custPannumber = custPannumber;
+            this.custAccountnumber = custAccountnumber;
+            
+        }
+
+        @Override
+ public String toString() {
+            return "Customer Details\n" +
+                    "SSN ID: " + ssnId + "\n" +
+                    "Customer Name: " + custName + "\n" +
+                    "Customer Email: " + custEmail + "\n" +
+                    "Customer Address: " + custAddress + "\n" +
+                    "Customer Contact Number: " + custContactNumber + "\n" +
+                    "Customer Adhaar Number: " + custAdhaarnumber + "\n" +
+                    "Customer Pan Number: " + custPannumber + "\n" +
+                    "Customer Account Number: " + custAccountnumber;
+        }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Customer> customerList = new ArrayList<>();
+       
+        ArrayList<Employee> employeeList = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        int ssnId;
+        int empId;
+        String employeeName;
+        String empEmail;
+        String password;
+        String empAddress;
+        String empContactNumber;
+        String custName;
+        String custEmail;
+        String custAddress;
+        String custContactNumber;
+        String custAdhaarnumber;
+        String custPannumber;
+        String custAccountnumber;
+        
+
+        int choice;
+        do {
+System.out.println("1. Register Employee");
+            System.out.println("2. Register Customer");
+            System.out.println("3. View Customer Details");
+            System.out.println("5. Update Customer Details");
+            System.out.println("5. Delete Customer Details");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            
+
+            switch (choice) {
+                case 1:
+                   
+                      empId = (int) (Math.random() * 9000000) + 1000000;
+                     System.out.println("The emp id is " + empId);
+                
+                   
+                     System.out.print("Enter Employee Name: ");
+                    employeeName = scanner.next();
+                    System.out.print("Enter Employee Email: ");
+                    empEmail = scanner.next();
+                    System.out.print("Enter Password: ");
+                    password = scanner.next();
+                    System.out.print("Enter Employee Address: ");
+                    empAddress = scanner.next();
+                    System.out.print("Enter Employee Contact Number: ");
+                    empContactNumber = scanner.next();
+                
+
+                    employeeList.add(new Employee(empId, employeeName, empEmail, password, empAddress, empContactNumber));
+                    System.out.println("\nEmployee Registration is successful\n");
+                    break;
+                    
+                case 2:
+                    System.out.print("Enter SSN No.: ");
+                    ssnId = scanner.nextInt();
+  int length2 = String.valueOf(ssnId).length();
+                     while(length2!=7){
+                        System.out.println("Please enter your 7 digit SSN No.");
+                        System.out.print("Enter SSN No.: ");
+                    ssnId = scanner.nextInt();
+                    length2 = String.valueOf(ssnId).length();
+                    
+                   };
+                   
+                    System.out.print("Enter Customer Name: ");
+                    custName = scanner.next();
+                    System.out.print("Enter CustomerEmail: ");
+                    custEmail = scanner.next();
+                    System.out.print("Enter Customer Adress: ");
+                    custAddress = scanner.next();
+                    System.out.print("Enter Customer Contact Number ");
+                    custContactNumber = scanner.next();
+                    System.out.print("Enter Customer Adhaar Number: ");
+                    custAdhaarnumber = scanner.next();
+                    System.out.print("Enter Customer Pan Number: ");
+                    custPannumber = scanner.next();
+                    System.out.print("Enter Customer Account Number: ");
+                    custAccountnumber = scanner.next();
+
+                    customerList.add(new Customer(ssnId, custName, custEmail, custAddress, custContactNumber, custAdhaarnumber,
+                    custPannumber,custAccountnumber));
+                    System.out.println("\nCustomer Registration is successful\n");
+                    break;    
+
+                case 3:
+                    System.out.print("Enter SSN ID: ");
+                    ssnId = scanner.nextInt();
+                    boolean isCustomerFound = false;
+  for (Customer customer : customerList) {
+                        if (customer.ssnId==ssnId) {
+                            System.out.println(customer);
+                            isCustomerFound = true;
+                            break;
+                        }
+                    }
+                    if (!isCustomerFound) {
+                        System.out.println("Customer data is not Available");
+                    }
+                    break;
+
+                case 4:
+                    System.out.print("Enter SSN ID: ");
+                    ssnId = scanner.nextInt();
+                    isCustomerFound = false;
+                    for (Customer customer : customerList) {
+                        if (customer.ssnId==ssnId) {
+                            System.out.println("\nCustomer Details Before Updating\n");
+                            System.out.println(customer);
+
+                   System.out.print("Enter New Customer Name: ");
+                    custName = scanner.next();
+                    System.out.print("Enter New CustomerEmail: ");
+                    custEmail = scanner.next();
+                    System.out.print("Enter New Customer Adress: ");
+                    custAddress = scanner.next();
+                    System.out.print("Enter New Customer Contact Number ");
+                    custContactNumber = scanner.next();
+                    System.out.print("Enter New Customer Adhaar Number: ");
+                    custAdhaarnumber = scanner.next();
+                    System.out.print("Enter New Customer Pan Number: ");
+                    custPannumber = scanner.next();
+                    System.out.print("Enter New Customer Account Number: ");
+                    custAccountnumber = scanner.next();
+
+                            customer.custName = custName;
+                            customer.custEmail = custEmail;
+                            customer.custAddress = custAddress;
+                            customer.custContactNumber = custContactNumber;
+                            customer.custAdhaarnumber = custAdhaarnumber;
+                            customer.custPannumber = custPannumber;
+                            customer.custAccountnumber = custAccountnumber;
+
+                            System.out.println("\nCustomer Details After Updating\n");
+                            System.out.println(customer);
+                            isCustomerFound = true;
+                            break;
+  }
+                    }
+                    if (!isCustomerFound) {
+                        System.out.println("Customer data is not Available");
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Enter SSN ID: ");
+                    ssnId = scanner.nextInt();
+                    isCustomerFound = false;
+                    for (Customer customer : customerList) {
+                        if (customer.ssnId==ssnId) {
+                            customerList.remove(customer);
+                            System.out.println("Customer data has been Deleted Successfully");
+                            isCustomerFound = true;
+                            break;
+                        }
+                    }
+                    if (!isCustomerFound) {
+                        System.out.println("Customer data is not Available");
+                    }
+                    break;
+
+                case 6:
+                    System.out.println("Thank you for using this system");
+                    break;
+
+default:
+                    System.out.println("Invalid Choice");
+            }
+        } while (choice != 6);
+    }
+}

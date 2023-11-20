@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 30px;
+            font-size: large;
+            height: max-content;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: azure;
+            background-color: rgb(32, 140, 234);
+        }
+
+        .headernav {
+            display: table-header-group;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 30px;
+            display: flex;
+            justify-content: end;
+            font-size: large;
+            border: 2px;
+            border-color: aliceblue;
+            height: max-content;
+            margin: 5px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: azure;
+            width: 97.5%;
+            background-color: rgb(32, 140, 234);
+        }
+
+        .mar {
+            display: table-header-group;
+            align-items: center;
+            display: flex;
+            justify-content: end;
+            border-color: aliceblue;
+            height: max-content;
+            color: red;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            width: 97.5%;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .button {
+            background-color: rgb(32, 140, 234);
+            color: white;
+            padding: 10px;
+            margin-right: 20px;
+            font-size: medium;
+            font-weight: bold;
+            border: none;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .main-container {
+            display: flex;
+            top: 0px;
+            justify-content: space-between;
+            height: auto;
+        }
+
+        .img {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+        }
+
+        .bank-image {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px;
+
+        }
+
+        .icon-container {
+            text-align: center;
+            margin: 10px;
+            margin-left: 20px;
+        }
+
+        .icon {
+            width: 160px; /* Adjust the size as needed */
+            height: 160px;
+            border-radius: 50%;
+            margin: 10px 10px; /* Adjust the spacing between icons */
+        }
+
+        .tagline {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: rgb(32, 140, 234);
+            color: white;
+            text-align: center;
+            display: grid;
+            padding: 24px;
+            grid-template-columns: 1fr 2fr;
+            border-top: 2px solid white;
+            grid-gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer img {
+            width: 120px; /* Adjust the width as needed */
+            height: auto;
+        }
+
+        .footer-text {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>BANK MANAGEMENT SYSTEM</h1>
+</div>
+
+<div class="headernav">
+    <a href="employee_registration_form.html" ><button class="button">Employee Registration</button></a>
+    <a href="login.html" ><button class="button" >Employee Login</button></a>
+    <a href="customer_registration_form.html" ><button class="button">Customer Registration</button></a>
+    <a href="employee_registration_form.html" ><button class="button">Loan Application</button></a>
+    <a href="employee_registration_form.html" ><button class="button">Transaction management</button></a>
+    <a href="home.html" ><button class="button" >Home</button></a>
+</div>
+
+<div class="main-container">
+    <div class="img">
+        <div class="bank-image">
+            <img src="bank.jpg" alt="Bank Image">
+        </div>
+        <div class="icons">
+            <!-- Add your circular icons for account registration, loan management, etc. -->
+            <div class="icon-container">
+                <img src="icon1.jpg" alt="Icon 1" class="icon">
+                <p class="tagline">Account Registration</p>
+            </div>
+            <div class="icon-container">
+                <img src="icon2.jpeg" alt="Icon 2" class="icon">
+                <p class="tagline">Loan Management</p>
+            </div>
+            <div class="icon-container">
+                <img src="icon3.jpg" alt="Icon 3" class="icon">
+                <p class="tagline">Icon 3 Tagline</p>
+            </div>
+            <div class="icon-container">
+                <img src="icon4.jpg" alt="Icon 4" class="icon">
+                <p class="tagline">Icon 4 Tagline</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mar">
+    <marquee> <h4>Welcome! to Bank Management System! Here we provide you the best services. Kindly contact our home branch if any issue with the website.</h4></marquee>
+</div>
+
+<div class="footer">
+    <img src="bank.jpg" alt="Bank Logo">
+    <div class="footer-text">
+        <p><strong>Bank Name</strong></p>
+        <p>123 Main Street, Cityville</p>
+        <p>City, Country</p>
+        <p>@bankmanagement</p>
+    </div>
+</div>
+</body>
+</html>
